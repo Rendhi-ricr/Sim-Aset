@@ -39,6 +39,17 @@
                             Data Ruangan
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a href="/panel/kategori" class="sidebar-link ms-4">
+                            Data Kategori
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/panel/item" class="sidebar-link ms-4">
+                            Data Item /
+                            Barang
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="sidebar-item">
