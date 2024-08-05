@@ -84,10 +84,10 @@ class RuanganModel extends Model
         return $query->getResult();
     }
 
-    // public function data_buku($id_buku)
-    // {
-    //     return $this->find($id_buku);
-    // }
+    public function data_ruangan($kode_ruangan)
+    {
+        return $this->find($kode_ruangan);
+    }
     // public function update_data($data, $id_buku)
     // {
     //     $query = $this->db->table($this->table)->update(

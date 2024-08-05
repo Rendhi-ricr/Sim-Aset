@@ -42,7 +42,10 @@
                                         <td> </td>
                                         <td><?= $no++; ?></td>
                                         <td><?= $key['nama_kategori']; ?></td>
-                                        <td></td>
+                                        <td>
+                                            <a href="<?= base_url('panel/kategori/' . $key['id_kategori']) ?>" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')">Hapus</a>
+                                        </td>
 
                                     </tr>
                                 <?php endforeach; ?>

@@ -13,6 +13,7 @@ $routes->group("panel/gedung", function ($routes) {
     // $routes->post('fetch-draft', 'Panel\Agenda::fetchAgendaDraft');
     // $routes->post('fetch-trash', 'Panel\Agenda::fetchAgendaTrash');
     $routes->match(["get", "post"], "tambah", "Panel\Gedung::tambah");
+    $routes->match(["get", "post"], "(:segment)", "Panel\Gedung::edit/$1");
     // $routes->match(["get", "post"], "(:any)/edit", "Panel\Agenda::edit/$1");
     // $routes->post('trash-selected', 'Panel\Agenda::trashSelected');
     // $routes->get('(:any)/trash', 'Panel\Agenda::trash/$1');
@@ -27,6 +28,7 @@ $routes->group("panel/ruangan", function ($routes) {
     // $routes->post('fetch-draft', 'Panel\Agenda::fetchAgendaDraft');
     // $routes->post('fetch-trash', 'Panel\Agenda::fetchAgendaTrash');
     $routes->match(["get", "post"], "tambah", "Panel\Ruangan::tambah");
+    $routes->match(["get", "post"], "(:segment)", "Panel\Ruangan::edit/$1");
     // $routes->match(["get", "post"], "(:any)/edit", "Panel\Agenda::edit/$1");
     // $routes->post('trash-selected', 'Panel\Agenda::trashSelected');
     // $routes->get('(:any)/trash', 'Panel\Agenda::trash/$1');
@@ -40,6 +42,7 @@ $routes->group("panel/kategori", function ($routes) {
     // $routes->post('fetch-draft', 'Panel\Agenda::fetchAgendaDraft');
     // $routes->post('fetch-trash', 'Panel\Agenda::fetchAgendaTrash');
     $routes->match(["get", "post"], "tambah", "Panel\Kategori::tambah");
+    $routes->match(["get", "post"], "(:segment)", "Panel\Kategori::edit/$1");
     // $routes->match(["get", "post"], "(:any)/edit", "Panel\Agenda::edit/$1");
     // $routes->post('trash-selected', 'Panel\Agenda::trashSelected');
     // $routes->get('(:any)/trash', 'Panel\Agenda::trash/$1');

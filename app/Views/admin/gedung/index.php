@@ -46,7 +46,10 @@
                                         <td><?= $key['kode_gedung']; ?></td>
                                         <td><?= $key['nama_gedung']; ?></td>
                                         <td><?= $key['keterangan']; ?></td>
-                                        <td></td>
+                                        <td>
+                                            <a href="<?= base_url('panel/gedung/' . $key['kode_gedung']) ?>" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')">Hapus</a>
+                                        </td>
 
                                     </tr>
                                 <?php endforeach; ?>

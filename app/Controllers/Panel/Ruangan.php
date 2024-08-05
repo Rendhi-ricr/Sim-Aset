@@ -51,4 +51,39 @@ class Ruangan extends BaseController
 
         return view('admin/ruangan/tambah', $data);
     }
+
+    public function edit($kode_ruangan)
+    {
+        // Mencari item berdasarkan ID yang diberikan
+        $data = [
+            'ruangan' => $this->ruanganModel->data_ruangan($kode_ruangan),
+            'gedung' => $this->gedungModel->findAll(),
+
+        ];
+
+        // Memeriksa apakah form telah di-submit dengan metode POST
+        if ($this->request->getMethod() === 'post') {
+
+            $kodeGedung = $this->request->getPost('kode_gedung');
+            $kodeRuangan = $this->ruanganModel->generateKodeRuangan($kodeGedung);
+            // Mengumpulkan data yang akan diperbarui
+            $updateData = [
+                'kode_ruangan' => $kodeRuangan,
+                'kode_gedung' => $kodeGedung,
+                'nama_ruangan' => $this->request->getPost('nama_ruangan'),
+                'lantai' => $this->request->getPost('lantai'),
+                'keterangan' => $this->request->getPost('keterangan'),
+            ];
+
+            // Memperbarui data item di database
+            $this->ruanganModel->update($kode_ruangan, $updateData);
+
+            // Menampilkan pesan sukses
+            session()->setFlashdata('message', 'Item berhasil diperbarui');
+            return redirect()->to('/panel/ruangan');
+        }
+
+        // Menampilkan view dengan data item dan kategori
+        return view('admin/ruangan/edit', $data);
+    }
 }

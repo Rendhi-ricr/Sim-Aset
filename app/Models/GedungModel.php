@@ -60,10 +60,10 @@ class GedungModel extends Model
     //     return $query->getResult();
     // }
 
-    // public function data_buku($id_buku)
-    // {
-    //     return $this->find($id_buku);
-    // }
+    public function data_gedung($kode_gedung)
+    {
+        return $this->find($kode_gedung);
+    }
     // public function update_data($data, $id_buku)
     // {
     //     $query = $this->db->table($this->table)->update(

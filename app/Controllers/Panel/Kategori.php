@@ -44,4 +44,33 @@ class Kategori extends BaseController
         }
         return view('admin/kategori/tambah', $data);
     }
+
+    public function edit($id_kategori)
+    {
+        // Mencari item berdasarkan ID yang diberikan
+        $data = [
+            'kategori' => $this->kategoriModel->data_kategori($id_kategori),
+
+        ];
+
+        // Memeriksa apakah form telah di-submit dengan metode POST
+        if ($this->request->getMethod() === 'post') {
+
+
+            // Mengumpulkan data yang akan diperbarui
+            $updateData = [
+                'nama_kategori'   => $this->request->getPost('nama_kategori'),
+            ];
+
+            // Memperbarui data item di database
+            $this->kategoriModel->update($id_kategori, $updateData);
+
+            // Menampilkan pesan sukses
+            session()->setFlashdata('message', 'Item berhasil diperbarui');
+            return redirect()->to('/panel/kategori');
+        }
+
+        // Menampilkan view dengan data item dan kategori
+        return view('admin/kategori/edit', $data);
+    }
 }
